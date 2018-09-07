@@ -82,7 +82,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>柚木's Blog - 如若你懂，木末城堡里追逐似水流年</title>
+    <title>分类: 数据结构 | 柚木's Blog - 如若你懂，木末城堡里追逐似水流年</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -103,7 +103,7 @@
       <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
       <ul id="menu" role="menubar" aria-hidden="false">
         
-        <li role="menuitem"><a href="/" class="current">首页</a></li>
+        <li role="menuitem"><a href="/">首页</a></li>
         
         <li role="menuitem"><a href="/archives/">归档</a></li>
         
@@ -122,116 +122,22 @@
         <div class="main-container">
           <div class="content">
             
-
-<div id="index" class="index page">
+<div id="category" class="category page">
+  <h1 class="page-title">数据结构</h1>
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://www.jxueing.top/2018/09/07/MGraph/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="youmu">
-        <meta itemprop="description" content="This is a simple recode about life">
-        <meta itemprop="image" content="/images/avatar.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="柚木's Blog">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
+    <header id="post-header" class="post-header">
+      <h1 class="post-title-simple" itemprop="name headline">
         <a class="post-title-link post-title-link-external" href="/2018/09/07/MGraph/" itemprop="url">MGraph</a>
       </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-09-07T20:17:51+08:00">2018-09-07 20:17:51</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
-        </span>
-        
-        
-        
-        
-      </div>
+      
+      <span class="post-date">
+        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-09-07T20:17:51+08:00">09-07</time>
+      </span>
+      
     </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <figure class="hljs highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs objc"><span class="hljs-meta">#include<span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> VertexType&#123;<br><span class="hljs-keyword">int</span> no;<br><span class="hljs-keyword">char</span> data;<br>&#125;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> MGraph&#123;<br>	<span class="hljs-keyword">int</span> edges[maxSize][maxSize];<br>	<span class="hljs-keyword">int</span> n,e;<br>	VertexType vex[maxSize];<br>&#125;<br></code></pre></td></tr></table></figure>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/图/" rel="tag"><i class="fas fa-tags"></i>图</a>
-        
-      </div>
-      
-    </footer>
   </article>
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://www.jxueing.top/2018/09/07/AGraph/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="youmu">
-        <meta itemprop="description" content="This is a simple recode about life">
-        <meta itemprop="image" content="/images/avatar.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="柚木's Blog">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/09/07/AGraph/" itemprop="url">AGraph</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-09-07T19:56:04+08:00">2018-09-07 19:56:04</time></span>
-        </span>
-        
-        
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <figure class="hljs highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs objc"><span class="hljs-meta">#include<span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> ArcNode&#123;<br><span class="hljs-keyword">int</span> adjvex;<br><span class="hljs-keyword">struct</span> ArcNode nextarc;<br><span class="hljs-keyword">int</span> info;<br>&#125;<br></code></pre></td></tr></table></figure>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/数据结构/" rel="tag"><i class="fas fa-tags"></i>数据结构</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
-  
-  
-  
-
-<div class="comments" id="comments">
-  
-</div>
-
-
-
   
 </div>
 
