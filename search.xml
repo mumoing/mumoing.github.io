@@ -12,12 +12,14 @@
           
           <category> 数据结构 </category>
           
+          <category> 图 </category>
+          
       </categories>
       
       
         <tags>
             
-            <tag> 图 </tag>
+            <tag> 邻接矩阵存储 </tag>
             
         </tags>
       
@@ -33,12 +35,14 @@
           
           <category> 数据结构 </category>
           
+          <category> 图 </category>
+          
       </categories>
       
       
         <tags>
             
-            <tag> 图 </tag>
+            <tag> ；邻接表结构 </tag>
             
         </tags>
       
