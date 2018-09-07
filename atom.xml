@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jxueing.top/"/>
-  <updated>2018-09-06T14:44:57.385Z</updated>
+  <updated>2018-09-07T11:58:20.443Z</updated>
   <id>http://www.jxueing.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AGraph</title>
+    <link href="http://www.jxueing.top/2018/09/07/AGraph/"/>
+    <id>http://www.jxueing.top/2018/09/07/AGraph/</id>
+    <published>2018-09-07T11:56:04.000Z</published>
+    <updated>2018-09-07T11:58:20.443Z</updated>
+    
+    <content type="html"><![CDATA[<p>#include&lt;stdio.h&gt;<br>typedef struct ArcNode{<br>int adjvex;<br>struct ArcNode nextarc;<br>int info;<br>}</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#include&amp;lt;stdio.h&amp;gt;&lt;br&gt;typedef struct ArcNode{&lt;br&gt;int adjvex;&lt;br&gt;struct ArcNode nextarc;&lt;br&gt;int info;&lt;br&gt;}&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://www.jxueing.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>柚木</title>

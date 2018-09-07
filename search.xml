@@ -3,6 +3,21 @@
   
     
     <entry>
+      <title>AGraph</title>
+      <link href="/2018/09/07/AGraph/"/>
+      <url>/2018/09/07/AGraph/</url>
+      <content type="html"><![CDATA[<p>#include&lt;stdio.h&gt;<br>typedef struct ArcNode{<br>int adjvex;<br>struct ArcNode nextarc;<br>int info;<br>}</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>柚木</title>
       <link href="/2018/09/06/%E6%9F%9A%E6%9C%A8/"/>
       <url>/2018/09/06/%E6%9F%9A%E6%9C%A8/</url>
