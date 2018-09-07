@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>youmu&#39;s blog</title>
+  
+  <subtitle>blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.jxueing.top/"/>
+  <updated>2018-09-06T14:44:57.385Z</updated>
+  <id>http://www.jxueing.top/</id>
+  
+  <author>
+    <name>youmu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>柚木</title>
+    <link href="http://www.jxueing.top/2018/09/06/%E6%9F%9A%E6%9C%A8/"/>
+    <id>http://www.jxueing.top/2018/09/06/柚木/</id>
+    <published>2018-09-06T14:44:08.000Z</published>
+    <updated>2018-09-06T14:44:57.385Z</updated>
+    
+    <content type="html"><![CDATA[<p>第一篇，开始出发</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;第一篇，开始出发&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hi</title>
+    <link href="http://www.jxueing.top/2018/09/06/hi/"/>
+    <id>http://www.jxueing.top/2018/09/06/hi/</id>
+    <published>2018-09-06T11:51:40.000Z</published>
+    <updated>2018-09-06T11:52:39.064Z</updated>
+    
+    <content type="html"><![CDATA[<p>#hello world</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#hello world&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
