@@ -1,178 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This is a simple recode life">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+{% extends "_layout.njk" %}
 
-    <title>
-        
-        柚木 - undefined
-        
-    </title>
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for("css/page.css") }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for("css/post.css") }}">
+{% endblock %}
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
-</head>
+{% block title %}{{ page.title }} | {{ config.title }}{% if config.subtitle %} - {{ config.subtitle }}{% endif %}{% endblock %}
 
-<body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> blog </i>
-</div>
-
-<div class="index-container">
-    
-    <div class="index-left">
-        
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar">
-            <img src="/" />
-        </div>
-        <div class="name">
-            <i>youmu</i>
-        </div>
+{% block content %}
+<div id="post" class="page">
+  {% set post = page %}
+  <article class="article post card{% if theme.animate %} animate{% endif %}" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="{{ config.url }}{{ url_for(page.path) }}">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="{{ config.author }}">
+       <meta itemprop="description" content="{{ config.description }}">
+       <meta itemprop="image" content="{{ url_for(theme.avatar) }}">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="{{ config.title }}">
+      </span>
     </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>HOME</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>TAGS</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>ARCHIVES</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>ABOUT</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    
-        <div id="toc" class="toc-article">
-    
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">search</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
-    </div>
-</div>
-        <div class="index-about-mobile">
-            <i> blog </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
-        
-
-
-<div class="post-container">
-    <div class="post-title">
-        柚木
-    </div>
-
-    <div class="post-meta">
-        <span class="attr">Post：<span>2018-09-06 22:44:08</span></span>
-        
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+      <div class="post-meta">
+        {% if page.date %}
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="{{ moment(post.date).format() }}">{{ date(post.date, config.date_format) }} {{ time(post.date, config.time_format) }}</time></span>
         </span>
-        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
-    </div>
-    <div class="post-content ">
-        <p>第一篇，开始出发</p>
-
-        
-        <div id="comment-container">
-        </div>
-    </div>
-</div>
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-
-        
-
-        
-
-        
-
-        
-
-    </ul>
-    
-    <p>
-        <span id="busuanzi_container_site_pv">
-            柚木-
+        {% endif %}
+        {% if page.categories and page.categories.toArray().length %}
+        {% if page.date %}
+        <span class="post-meta-divider divider">|</span>
+        {% endif %}
+        <span class="post-categories">
+          {# About `-`: https://mozilla.github.io/nunjucks/cn/templating.html#part-861ece9d8e5ce60c #}
+          {% for cat in page.categories.toArray() -%}
+          {% if loop.first %}<i class="far fa-folder-open"></i>{% else %}<i class="fas fa-angle-right"></i>{% endif %}<span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="{{ url_for(cat.path) }}" itemprop="url" rel="index"><span itemprop="name">{{ cat.name }}</span></a></span>
+          {%- endfor %}
         </span>
-        <span id="busuanzi_container_site_uv">
-            </span>果林
+        {% endif %}
+        {% if page.comment !== false and theme.comment.enable %}
+        {% if theme.comment.disqus_shortname %}
+        {% if page.categories or page.date %}
+        <span class="post-meta-divider divider">|</span>
+        {% endif %}
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="{{ url_for(page.path) }}#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="{{ page.path }}" itemprop="commentCount"></span></a></span>
         </span>
-        <a >life </a>   <a >@Blog</a></p>
-</footer>
-
-
-
-
-</body>
-
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = ""
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-</html>
+        {% endif %}
+        {% endif %}
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      {{ page.content }}
+    </main>
+    <footer class="post-footer">
+      {% if page.tags and page.tags.toArray().length %}
+      <div class="post-tags">
+        {% for tag in page.tags.toArray() %}
+        <a class="post-tag button" href="{{ url_for(tag.path) }}" rel="tag"><i class="fas fa-tags"></i>{{ tag.name }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </footer>
+  </article>
+  {% if theme.reward.enable %}
+  {% include "reward.njk" %}
+  {% endif %}
+  {% if page.prev or page.next %}
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      {% if page.next %}
+      <a href="{{ url_for(page.next.path) }}" rel="next" title="{{ page.next.title }}"><i class="fas fa-angle-left"></i><span class="nav-title">{{ page.next.title }}</span></a>
+      {% endif %}
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      {% if page.prev %}
+      <a href="{{ url_for(page.prev.path) }}" rel="prev" title="{{ page.prev.title }}"><span class="nav-title">{{ page.prev.title }}</span><i class="fas fa-angle-right"></i></a>
+      {% endif %}
+    </div>
+  </nav>
+  {% endif %}
+  {% if theme.comment.enable %}
+  {% include "comment.njk" %}
+  {% endif %}
+</div>
+{% endblock %}
