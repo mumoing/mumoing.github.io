@@ -307,6 +307,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/图/" itemprop="url" rel="index">
+                    <span itemprop="name">图</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -347,32 +380,8 @@
       
         
           
-            <p><strong>Graph</strong></p>
-<p>#include&lt;stdio.h&gt;</p>
-<p>#define maxSize 100<br>typedef struct ArcNode{<br>    int adjvex;<br>    struct ArcNode <em>nextarc;<br>    int info;<br>}ArcNode;<br>typedef struct VNode{<br>    ArcNode </em>firstarc;<br>    char data;<br>}VNode;<br>typedef struct AGraph{<br>    VNode adjlist[maxSize];<br>    int e,n;</p>
-<p>}AGraph;</p>
-<p>AGraph buildAGraph()<br>{<br>    AGraph ag;<br>    ag.n=6;<br>    ag.e=7;<br>    int i;<br>    VNode vn;<br>    for(i=0;i&lt;ag.n;i++)<br>    {<br>        vn.data=(char)(65+i);<br>        //printf(“%c”,vn.data);<br>        ag.adjlist[i]=vn;<br>    }<br>    ArcNode arc1,arc2,arc3,arc4,arc5,arc6,arc7;<br>    arc1.adjvex=1;<br>    arc1.nextarc=&arc3;<br>    arc2.adjvex=2;<br>    arc2.nextarc=&arc4;</p>
-<pre><code>arc3.adjvex=3;
-arc4.adjvex=4;
-    arc5.adjvex=4;
-arc6.adjvex=3;
-    arc7.adjvex=5;
-arc3.nextarc=NULL;
-arc4.nextarc=NULL;
-arc5.nextarc=NULL;
-arc6.nextarc=NULL;
-arc7.nextarc=NULL;
-ag.adjlist[0].firstarc=&amp;arc1;
-ag.adjlist[1].firstarc=&amp;arc2;
-ag.adjlist[2].firstarc=NULL;
-ag.adjlist[3].firstarc=&amp;arc5;
-ag.adjlist[4].firstarc=&amp;arc7;
-ag.adjlist[5].firstarc=&amp;arc6;
-return ag;
-</code></pre><p>}</p>
-<p>int visit[]={0,0,0,0,0,0,0,0,0};<br>void DFS(AGraph <em>G,int v)<br>{<br>    char content=G-&gt;adjlist[v].data;<br>    printf(“%c”,content);<br>    visit[v]=1;<br>    ArcNode </em>p=G-&gt;adjlist[v].firstarc;<br>    while(p!=NULL)<br>    {<br>        if(visit[p-&gt;adjvex]==0)<br>        {<br>            DFS(G,p-&gt;adjvex);<br>        }<br>        p=p-&gt;nextarc;<br>    }</p>
-<p>}<br>int Visit[]={0,0,0,0,0,0,0,0,0,0,0};<br>void BFS(AGraph <em>G,int v)<br>{<br>    char content=G-&gt;adjlist[v].data;<br>    printf(“%c”,content);<br>    Visit[v]=1;<br>    int que[maxSize],rear=0,front=0;<br>    int k;<br>    int i,j;<br>    rear=(rear+1)%maxSize;<br>    que[rear]=v;<br>    ArcNode </em>p;<br>    while(rear!=front)<br>    {<br>    front=(front+1)%maxSize;<br>    k=que[front];<br>    p=G-&gt;adjlist[k].firstarc;<br>     while(p!=NULL)<br>     {<br>        if(Visit[p-&gt;adjvex]==0)<br>        {<br>            content=G-&gt;adjlist[p-&gt;adjvex].data;<br>            printf(“%c”,content);<br>            Visit[p-&gt;adjvex]=1;<br>            rear=(rear+1)%maxSize;<br>            que[rear]=p-&gt;adjvex;<br>        }<br>        p=p-&gt;nextarc;<br>     }<br>    }</p>
-<p>}<br>void main()<br>{<br>    AGraph ag=buildAGraph();<br>    DFS(&amp;ag,0);<br>    printf(“\n”);<br>    BFS(&amp;ag,0);<br>}</p>
+            <p><strong>源码</strong></p>
+<p>#include&lt;stdio.h&gt;<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><code class="hljs objc"><span class="hljs-meta">#define maxSize 100</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> ArcNode&#123;<br>	<span class="hljs-keyword">int</span> adjvex;<br>	<span class="hljs-keyword">struct</span> ArcNode *nextarc;<br>	<span class="hljs-keyword">int</span> info;<br>&#125;ArcNode;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> VNode&#123;<br>	ArcNode *firstarc;<br>	<span class="hljs-keyword">char</span> data;<br>&#125;VNode;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> AGraph&#123;<br>	VNode adjlist[maxSize];<br>	<span class="hljs-keyword">int</span> e,n;<br><br>&#125;AGraph;<br><br>AGraph buildAGraph()<br>&#123;<br>	AGraph ag;<br>	ag.n=<span class="hljs-number">6</span>;<br>	ag.e=<span class="hljs-number">7</span>;<br>	<span class="hljs-keyword">int</span> i;<br>	VNode vn;<br>	<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;ag.n;i++)<br>	&#123;<br>		vn.data=(<span class="hljs-keyword">char</span>)(<span class="hljs-number">65</span>+i);<br>		<span class="hljs-comment">//printf("%c",vn.data);</span><br>		ag.adjlist[i]=vn;<br>	&#125;<br>	ArcNode arc1,arc2,arc3,arc4,arc5,arc6,arc7;<br>	arc1.adjvex=<span class="hljs-number">1</span>;<br>	arc1.nextarc=&amp;arc3;<br>	arc2.adjvex=<span class="hljs-number">2</span>;<br>	arc2.nextarc=&amp;arc4;<br><br>	arc3.adjvex=<span class="hljs-number">3</span>;<br>	arc4.adjvex=<span class="hljs-number">4</span>;<br>        arc5.adjvex=<span class="hljs-number">4</span>;<br>	arc6.adjvex=<span class="hljs-number">3</span>;<br>        arc7.adjvex=<span class="hljs-number">5</span>;<br>	arc3.nextarc=<span class="hljs-literal">NULL</span>;<br>	arc4.nextarc=<span class="hljs-literal">NULL</span>;<br>	arc5.nextarc=<span class="hljs-literal">NULL</span>;<br>	arc6.nextarc=<span class="hljs-literal">NULL</span>;<br>	arc7.nextarc=<span class="hljs-literal">NULL</span>;<br>	ag.adjlist[<span class="hljs-number">0</span>].firstarc=&amp;arc1;<br>	ag.adjlist[<span class="hljs-number">1</span>].firstarc=&amp;arc2;<br>	ag.adjlist[<span class="hljs-number">2</span>].firstarc=<span class="hljs-literal">NULL</span>;<br>	ag.adjlist[<span class="hljs-number">3</span>].firstarc=&amp;arc5;<br>	ag.adjlist[<span class="hljs-number">4</span>].firstarc=&amp;arc7;<br>	ag.adjlist[<span class="hljs-number">5</span>].firstarc=&amp;arc6;<br>	<span class="hljs-keyword">return</span> ag;<br>&#125;<br><br><span class="hljs-keyword">int</span> visit[]=&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>&#125;;<br><span class="hljs-keyword">void</span> DFS(AGraph *G,<span class="hljs-keyword">int</span> v)<br>&#123;<br>	<span class="hljs-keyword">char</span> content=G-&gt;adjlist[v].data;<br>	printf(<span class="hljs-string">"%c"</span>,content);<br>	visit[v]=<span class="hljs-number">1</span>;<br>	ArcNode *p=G-&gt;adjlist[v].firstarc;<br>	<span class="hljs-keyword">while</span>(p!=<span class="hljs-literal">NULL</span>)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(visit[p-&gt;adjvex]==<span class="hljs-number">0</span>)<br>		&#123;<br>			DFS(G,p-&gt;adjvex);<br>		&#125;<br>		p=p-&gt;nextarc;<br>	&#125;<br><br><br>&#125;<br><span class="hljs-keyword">int</span> Visit[]=&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>&#125;;<br><span class="hljs-keyword">void</span> BFS(AGraph *G,<span class="hljs-keyword">int</span> v)<br>&#123;<br>	<span class="hljs-keyword">char</span> content=G-&gt;adjlist[v].data;<br>	printf(<span class="hljs-string">"%c"</span>,content);<br>	Visit[v]=<span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">int</span> que[maxSize],rear=<span class="hljs-number">0</span>,front=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">int</span> k;<br>	<span class="hljs-keyword">int</span> i,j;<br>	rear=(rear+<span class="hljs-number">1</span>)%maxSize;<br>	que[rear]=v;<br>	ArcNode *p;<br>	<span class="hljs-keyword">while</span>(rear!=front)<br>	&#123;<br>	front=(front+<span class="hljs-number">1</span>)%maxSize;<br>	k=que[front];<br>	p=G-&gt;adjlist[k].firstarc;<br>	 <span class="hljs-keyword">while</span>(p!=<span class="hljs-literal">NULL</span>)<br>	 &#123;<br>		<span class="hljs-keyword">if</span>(Visit[p-&gt;adjvex]==<span class="hljs-number">0</span>)<br>		&#123;<br>			content=G-&gt;adjlist[p-&gt;adjvex].data;<br>			printf(<span class="hljs-string">"%c"</span>,content);<br>			Visit[p-&gt;adjvex]=<span class="hljs-number">1</span>;<br>			rear=(rear+<span class="hljs-number">1</span>)%maxSize;<br>			que[rear]=p-&gt;adjvex;<br>		&#125;<br>		p=p-&gt;nextarc;<br>	 &#125;<br>	&#125;<br>	<br>&#125;<br><span class="hljs-keyword">void</span> main()<br>&#123;<br>	AGraph ag=buildAGraph();<br>	DFS(&amp;ag,<span class="hljs-number">0</span>);<br>	printf(<span class="hljs-string">"\n"</span>);<br>	BFS(&amp;ag,<span class="hljs-number">0</span>);<br>&#125;<br></code></pre></td></tr></table></figure></p>
 
           
         
@@ -1104,7 +1113,7 @@ return ag;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
