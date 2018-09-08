@@ -78,7 +78,7 @@
     <link href="http://www.jxueing.top/2018/09/07/AGraph/"/>
     <id>http://www.jxueing.top/2018/09/07/AGraph/</id>
     <published>2018-09-07T11:56:04.000Z</published>
-    <updated>2018-09-07T14:50:20.000Z</updated>
+    <updated>2018-09-08T16:56:55.000Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include<span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> ArcNode&#123;</span><br><span class="line"><span class="keyword">int</span> adjvex;</span><br><span class="line"><span class="keyword">struct</span> ArcNode nextarc;</span><br><span class="line"><span class="keyword">int</span> info;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     

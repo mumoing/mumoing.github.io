@@ -89,13 +89,27 @@
 <meta property="og:site_name" content="柚木&#39;s Blog">
 <meta property="og:description" content="123456#include&amp;lt;stdio.h&amp;gt;typedef struct ArcNode&amp;#123;int adjvex;struct ArcNode nextarc;int info;&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T14:50:20.000Z">
+<meta property="og:updated_time" content="2018-09-08T16:56:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AGraph">
 <meta name="twitter:description" content="123456#include&amp;lt;stdio.h&amp;gt;typedef struct ArcNode&amp;#123;int adjvex;struct ArcNode nextarc;int info;&amp;#125;">
 
 
 
+<script>
+    (function () {
+        if ('哈哈') {
+            if (prompt('请输入文章密码') !== '哈哈') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://mumoing.github.io/"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
@@ -147,6 +161,10 @@
 
 
 
+
+ 
+<script type="text/javascript"
+color="0,0,255" opacity='0.7' zIndex="-2" count="50" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
 </head>
 
@@ -360,6 +378,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  18
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -383,6 +432,49 @@
     
     
 
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------~end~-------------</div>
+    
+</div>
+      
+    </div>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/09/07/AGraph/">AGraph</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 youmu 的个人博客">youmu</a></p>
+  <p><span>发布时间:</span>2018年09月07日 - 19:09</p>
+  <p><span>最后更新:</span>2018年09月09日 - 00:09</p>
+  <p><span>原始链接:</span><a href="/2018/09/07/AGraph/" title="AGraph">http://www.jxueing.top/2018/09/07/AGraph/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.jxueing.top/2018/09/07/AGraph/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      
+      </div>
     
 
     
@@ -576,7 +668,8 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -595,6 +688,11 @@
 
 
   <div class="theme-info">Jxueingdom &mdash; ￣▽￣</a></div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
 
 
 
@@ -641,12 +739,11 @@
   
 
 
-
-
-
-
   
-  
+
+
+
+
 
 
 
@@ -686,12 +783,7 @@
 
   
   
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -881,5 +973,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
