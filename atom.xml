@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jxueing.top/"/>
-  <updated>2018-09-07T14:45:09.000Z</updated>
+  <updated>2018-09-08T04:48:36.538Z</updated>
   <id>http://www.jxueing.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>begin</title>
+    <link href="http://www.jxueing.top/2018/09/08/begin/"/>
+    <id>http://www.jxueing.top/2018/09/08/begin/</id>
+    <published>2018-09-08T04:43:35.000Z</published>
+    <updated>2018-09-08T04:48:36.538Z</updated>
+    
+    <content type="html"><![CDATA[<p>#倘若你认识这个世界<br> 我曾难自拔于世界之大也也沉浸于青春梦话<br>行行</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#倘若你认识这个世界&lt;br&gt; 我曾难自拔于世界之大也也沉浸于青春梦话&lt;br&gt;行行&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Life" scheme="http://www.jxueing.top/categories/Life/"/>
+    
+      <category term="流年如雪" scheme="http://www.jxueing.top/categories/Life/%E6%B5%81%E5%B9%B4%E5%A6%82%E9%9B%AA/"/>
+    
+    
+      <category term="流年如雪" scheme="http://www.jxueing.top/tags/%E6%B5%81%E5%B9%B4%E5%A6%82%E9%9B%AA/"/>
+    
+  </entry>
   
   <entry>
     <title>MGraph</title>
