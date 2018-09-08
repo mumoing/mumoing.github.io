@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jxueing.top/"/>
-  <updated>2018-09-08T09:44:17.971Z</updated>
+  <updated>2018-09-08T11:52:01.106Z</updated>
   <id>http://www.jxueing.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图的遍历</title>
+    <link href="http://www.jxueing.top/2018/09/08/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+    <id>http://www.jxueing.top/2018/09/08/图的遍历/</id>
+    <published>2018-09-08T11:41:30.000Z</published>
+    <updated>2018-09-08T11:52:01.106Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Graph</strong></p><p>#include&lt;stdio.h&gt;</p><p>#define maxSize 100<br>typedef struct ArcNode{<br>    int adjvex;<br>    struct ArcNode <em>nextarc;<br>    int info;<br>}ArcNode;<br>typedef struct VNode{<br>    ArcNode </em>firstarc;<br>    char data;<br>}VNode;<br>typedef struct AGraph{<br>    VNode adjlist[maxSize];<br>    int e,n;</p><p>}AGraph;</p><p>AGraph buildAGraph()<br>{<br>    AGraph ag;<br>    ag.n=6;<br>    ag.e=7;<br>    int i;<br>    VNode vn;<br>    for(i=0;i&lt;ag.n;i++)<br>    {<br>        vn.data=(char)(65+i);<br>        //printf(“%c”,vn.data);<br>        ag.adjlist[i]=vn;<br>    }<br>    ArcNode arc1,arc2,arc3,arc4,arc5,arc6,arc7;<br>    arc1.adjvex=1;<br>    arc1.nextarc=&arc3;<br>    arc2.adjvex=2;<br>    arc2.nextarc=&arc4;</p><pre><code>arc3.adjvex=3;arc4.adjvex=4;    arc5.adjvex=4;arc6.adjvex=3;    arc7.adjvex=5;arc3.nextarc=NULL;arc4.nextarc=NULL;arc5.nextarc=NULL;arc6.nextarc=NULL;arc7.nextarc=NULL;ag.adjlist[0].firstarc=&amp;arc1;ag.adjlist[1].firstarc=&amp;arc2;ag.adjlist[2].firstarc=NULL;ag.adjlist[3].firstarc=&amp;arc5;ag.adjlist[4].firstarc=&amp;arc7;ag.adjlist[5].firstarc=&amp;arc6;return ag;</code></pre><p>}</p><p>int visit[]={0,0,0,0,0,0,0,0,0};<br>void DFS(AGraph <em>G,int v)<br>{<br>    char content=G-&gt;adjlist[v].data;<br>    printf(“%c”,content);<br>    visit[v]=1;<br>    ArcNode </em>p=G-&gt;adjlist[v].firstarc;<br>    while(p!=NULL)<br>    {<br>        if(visit[p-&gt;adjvex]==0)<br>        {<br>            DFS(G,p-&gt;adjvex);<br>        }<br>        p=p-&gt;nextarc;<br>    }</p><p>}<br>int Visit[]={0,0,0,0,0,0,0,0,0,0,0};<br>void BFS(AGraph <em>G,int v)<br>{<br>    char content=G-&gt;adjlist[v].data;<br>    printf(“%c”,content);<br>    Visit[v]=1;<br>    int que[maxSize],rear=0,front=0;<br>    int k;<br>    int i,j;<br>    rear=(rear+1)%maxSize;<br>    que[rear]=v;<br>    ArcNode </em>p;<br>    while(rear!=front)<br>    {<br>    front=(front+1)%maxSize;<br>    k=que[front];<br>    p=G-&gt;adjlist[k].firstarc;<br>     while(p!=NULL)<br>     {<br>        if(Visit[p-&gt;adjvex]==0)<br>        {<br>            content=G-&gt;adjlist[p-&gt;adjvex].data;<br>            printf(“%c”,content);<br>            Visit[p-&gt;adjvex]=1;<br>            rear=(rear+1)%maxSize;<br>            que[rear]=p-&gt;adjvex;<br>        }<br>        p=p-&gt;nextarc;<br>     }<br>    }</p><p>}<br>void main()<br>{<br>    AGraph ag=buildAGraph();<br>    DFS(&amp;ag,0);<br>    printf(“\n”);<br>    BFS(&amp;ag,0);<br>}</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;Graph&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;#include&amp;lt;stdio.h&amp;gt;&lt;/p&gt;
+&lt;p&gt;#define maxSize 100&lt;br&gt;typedef struct ArcNode{&lt;br&gt;    int adjvex;&lt;br&gt;    str
+      
+    
+    </summary>
+    
+    
+      <category term="AGraph&amp;MGraph" scheme="http://www.jxueing.top/tags/AGraph-MGraph/"/>
+    
+  </entry>
   
   <entry>
     <title>mk</title>

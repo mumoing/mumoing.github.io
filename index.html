@@ -265,6 +265,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jxueing.top/2018/09/08/图的遍历/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="youmu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柚木's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/08/图的遍历/" itemprop="url">图的遍历</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-08T19:41:30+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/08/图的遍历/" class="leancloud_visitors" data-flag-title="图的遍历">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Graph</strong></p>
+<p>#include&lt;stdio.h&gt;</p>
+<p>#define maxSize 100<br>typedef struct ArcNode{<br>    int adjvex;<br>    struct ArcNode <em>nextarc;<br>    int info;<br>}ArcNode;<br>typedef struct VNode{<br>    ArcNode </em>firstarc;<br>    char data;<br>}VNode;<br>typedef struct AGraph{<br>    VNode adjlist[maxSize];<br>    int e,n;</p>
+<p>}AGraph;</p>
+<p>AGraph buildAGraph()<br>{<br>    AGraph ag;<br>    ag.n=6;<br>    ag.e=7;<br>    int i;<br>    VNode vn;<br>    for(i=0;i&lt;ag.n;i++)<br>    {<br>        vn.data=(char)(65+i);<br>        //printf(“%c”,vn.data);<br>        ag.adjlist[i]=vn;<br>    }<br>    ArcNode arc1,arc2,arc3,arc4,arc5,arc6,arc7;<br>    arc1.adjvex=1;<br>    arc1.nextarc=&arc3;<br>    arc2.adjvex=2;<br>    arc2.nextarc=&arc4;</p>
+<pre><code>arc3.adjvex=3;
+arc4.adjvex=4;
+    arc5.adjvex=4;
+arc6.adjvex=3;
+    arc7.adjvex=5;
+arc3.nextarc=NULL;
+arc4.nextarc=NULL;
+arc5.nextarc=NULL;
+arc6.nextarc=NULL;
+arc7.nextarc=NULL;
+ag.adjlist[0].firstarc=&amp;arc1;
+ag.adjlist[1].firstarc=&amp;arc2;
+ag.adjlist[2].firstarc=NULL;
+ag.adjlist[3].firstarc=&amp;arc5;
+ag.adjlist[4].firstarc=&amp;arc7;
+ag.adjlist[5].firstarc=&amp;arc6;
+return ag;
+</code></pre><p>}</p>
+<p>int visit[]={0,0,0,0,0,0,0,0,0};<br>void DFS(AGraph <em>G,int v)<br>{<br>    char content=G-&gt;adjlist[v].data;<br>    printf(“%c”,content);<br>    visit[v]=1;<br>    ArcNode </em>p=G-&gt;adjlist[v].firstarc;<br>    while(p!=NULL)<br>    {<br>        if(visit[p-&gt;adjvex]==0)<br>        {<br>            DFS(G,p-&gt;adjvex);<br>        }<br>        p=p-&gt;nextarc;<br>    }</p>
+<p>}<br>int Visit[]={0,0,0,0,0,0,0,0,0,0,0};<br>void BFS(AGraph <em>G,int v)<br>{<br>    char content=G-&gt;adjlist[v].data;<br>    printf(“%c”,content);<br>    Visit[v]=1;<br>    int que[maxSize],rear=0,front=0;<br>    int k;<br>    int i,j;<br>    rear=(rear+1)%maxSize;<br>    que[rear]=v;<br>    ArcNode </em>p;<br>    while(rear!=front)<br>    {<br>    front=(front+1)%maxSize;<br>    k=que[front];<br>    p=G-&gt;adjlist[k].firstarc;<br>     while(p!=NULL)<br>     {<br>        if(Visit[p-&gt;adjvex]==0)<br>        {<br>            content=G-&gt;adjlist[p-&gt;adjvex].data;<br>            printf(“%c”,content);<br>            Visit[p-&gt;adjvex]=1;<br>            rear=(rear+1)%maxSize;<br>            que[rear]=p-&gt;adjvex;<br>        }<br>        p=p-&gt;nextarc;<br>     }<br>    }</p>
+<p>}<br>void main()<br>{<br>    AGraph ag=buildAGraph();<br>    DFS(&amp;ag,0);<br>    printf(“\n”);<br>    BFS(&amp;ag,0);<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.jxueing.top/2018/09/08/mk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -926,7 +1082,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -948,7 +1104,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
