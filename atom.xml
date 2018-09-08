@@ -23,13 +23,13 @@
     <published>2018-09-07T12:17:51.000Z</published>
     <updated>2018-09-07T14:45:09.000Z</updated>
     
-    <content type="html"><![CDATA[<figure class="hljs highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs objc"><span class="hljs-meta">#include<span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> VertexType&#123;<br><span class="hljs-keyword">int</span> no;<br><span class="hljs-keyword">char</span> data;<br>&#125;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> MGraph&#123;<br><span class="hljs-keyword">int</span> edges[maxSize][maxSize];<br><span class="hljs-keyword">int</span> n,e;<br>VertexType vex[maxSize];<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs objc"><span class="hljs-meta">#include<span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> VertexType&#123;<br><span class="hljs-keyword">int</span> no;<br><span class="hljs-keyword">char</span> data;<br>&#125;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> MGraph&#123;<br><span class="hljs-keyword">int</span> edges[maxSize][maxSize];<br><span class="hljs-keyword">int</span> n,e;<br>VertexType vex[maxSize];<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;figure class=&quot;hljs highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c
+        &lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
       
     
     </summary>
@@ -50,13 +50,13 @@
     <published>2018-09-07T11:56:04.000Z</published>
     <updated>2018-09-07T14:50:20.000Z</updated>
     
-    <content type="html"><![CDATA[<figure class="hljs highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs objc"><span class="hljs-meta">#include<span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> ArcNode&#123;<br><span class="hljs-keyword">int</span> adjvex;<br><span class="hljs-keyword">struct</span> ArcNode nextarc;<br><span class="hljs-keyword">int</span> info;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs objc"><span class="hljs-meta">#include<span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> ArcNode&#123;<br><span class="hljs-keyword">int</span> adjvex;<br><span class="hljs-keyword">struct</span> ArcNode nextarc;<br><span class="hljs-keyword">int</span> info;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;figure class=&quot;hljs highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c
+        &lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
       
     
     </summary>
