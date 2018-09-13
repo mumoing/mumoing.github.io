@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title>克鲁斯卡尔算法</title>
+      <link href="/blogs/6f5a540e/"/>
+      <url>/blogs/6f5a540e/</url>
+      <content type="html"><![CDATA[<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><blockquote><p>使用邻接矩阵结构的图实现克鲁斯卡尔算法</p></blockquote><h1 id="构建的图的结构如下："><a href="#构建的图的结构如下：" class="headerlink" title="构建的图的结构如下："></a>构建的图的结构如下：</h1><p><img src="http://www.jxueing.top/image/upload/Kruskal.png" alt="构建的图"><br><a id="more"></a></p><h1 id="源码："><a href="#源码：" class="headerlink" title="源码："></a>源码：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#define maxSize 100</span><br><span class="line">#define INF 100</span><br><span class="line">typedef struct VertexType&#123;</span><br><span class="line">int no;</span><br><span class="line">char info;</span><br><span class="line">&#125;VertexType;</span><br><span class="line">typedef struct MGraph&#123;</span><br><span class="line">int n;</span><br><span class="line">int e;</span><br><span class="line">VertexType vex[maxSize];</span><br><span class="line">int edges[maxSize][maxSize];</span><br><span class="line">&#125;MGraph;</span><br><span class="line">typedef struct Road&#123;</span><br><span class="line">int a,b;</span><br><span class="line">int w;</span><br><span class="line">&#125;Road;</span><br><span class="line">Road road[maxSize];</span><br><span class="line">MGraph buildMGraph(Road *hi)</span><br><span class="line">&#123;</span><br><span class="line">MGraph mg;</span><br><span class="line">mg.n=5;</span><br><span class="line">mg.e=8;</span><br><span class="line">int i;</span><br><span class="line">for(i=0;i&lt;mg.n;i++)</span><br><span class="line">&#123;</span><br><span class="line">mg.vex[i].no=i;</span><br><span class="line">&#125;</span><br><span class="line">int edge[5][5]=&#123;&#123;0,5,1,2,100&#125;,&#123;5,0,3,100,4&#125;,&#123;1,3,0,6,2&#125;,&#123;2,100,6,0,3&#125;,&#123;100,4,2,3,0&#125;&#125;;</span><br><span class="line">int j;</span><br><span class="line">for(i=0;i&lt;5;i++)</span><br><span class="line">&#123;</span><br><span class="line">for(j=0;j&lt;5;j++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;%-6d&quot;,edge[i][j]);</span><br><span class="line">mg.edges[i][j]=edge[i][j];</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">hi-&gt;a=0;</span><br><span class="line">hi-&gt;b=1;</span><br><span class="line">hi-&gt;w=5;</span><br><span class="line">(hi+1)-&gt;a=0;</span><br><span class="line">(hi+1)-&gt;b=2;</span><br><span class="line">(hi+1)-&gt;w=1;</span><br><span class="line">(hi+2)-&gt;a=0;</span><br><span class="line">(hi+2)-&gt;b=3;</span><br><span class="line">(hi+2)-&gt;w=2;</span><br><span class="line">(hi+3)-&gt;a=2;</span><br><span class="line">(hi+3)-&gt;b=1;</span><br><span class="line">(hi+3)-&gt;w=3;</span><br><span class="line">(hi+4)-&gt;a=2;</span><br><span class="line">(hi+4)-&gt;b=3;</span><br><span class="line">(hi+4)-&gt;w=6;</span><br><span class="line">(hi+5)-&gt;a=2;</span><br><span class="line">(hi+5)-&gt;b=4;</span><br><span class="line">(hi+5)-&gt;w=2;</span><br><span class="line">(hi+6)-&gt;a=1;</span><br><span class="line">(hi+6)-&gt;b=4;</span><br><span class="line">(hi+6)-&gt;w=4;</span><br><span class="line">(hi+7)-&gt;a=3;</span><br><span class="line">(hi+7)-&gt;b=4;</span><br><span class="line">(hi+7)-&gt;w=3;</span><br><span class="line">return mg;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">void InsertSort(Road *r,int n)</span><br><span class="line">&#123;</span><br><span class="line">Road temp;</span><br><span class="line">int i,k;</span><br><span class="line">for(i=1;i&lt;n;i++)</span><br><span class="line">&#123;</span><br><span class="line">temp=*(r+i);</span><br><span class="line">k=i-1;</span><br><span class="line">while(k&gt;=0&amp;&amp;(r+k)-&gt;w&gt;temp.w)</span><br><span class="line">&#123;</span><br><span class="line">*(r+k+1)=*(r+k);</span><br><span class="line">k--;</span><br><span class="line">&#125;</span><br><span class="line">*(r+k+1)=temp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">int vest[maxSize];</span><br><span class="line">int getRoot(int *v,int a)</span><br><span class="line">&#123;</span><br><span class="line">while(a!=v[a])</span><br><span class="line">&#123;</span><br><span class="line">a=v[a];</span><br><span class="line">&#125;</span><br><span class="line">return a;</span><br><span class="line">&#125;</span><br><span class="line">void Kruskal(MGraph mg,int *v,Road *r)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">int i;</span><br><span class="line">for(i=0;i&lt;mg.n;i++)</span><br><span class="line">&#123;</span><br><span class="line">*(v+i)=i;</span><br><span class="line">&#125;</span><br><span class="line">int x,y,w;</span><br><span class="line">InsertSort(r,mg.e);</span><br><span class="line">for(i=0;i&lt;mg.e;i++)</span><br><span class="line">&#123;</span><br><span class="line">x=getRoot(v,(r+i)-&gt;a);</span><br><span class="line">y=getRoot(v,(r+i)-&gt;b);</span><br><span class="line">if(x!=y)</span><br><span class="line">&#123;</span><br><span class="line">*(v+x)=y;</span><br><span class="line">printf(&quot;%d---%d  pow:%-5d\n&quot;,(r+i)-&gt;a,(r+i)-&gt;b,(r+i)-&gt;w);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">MGraph mg=buildMGraph(road);</span><br><span class="line">int i;</span><br><span class="line">for(i=0;i&lt;8;i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;%-5d&quot;,road[i].w);</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line">InsertSort(road,8);</span><br><span class="line">for(i=0;i&lt;8;i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;%-5d&quot;,road[i].w);</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line">Kruskal(mg,vest,road);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="结果如下："><a href="#结果如下：" class="headerlink" title="结果如下："></a>结果如下：</h1><p><img src="http://www.jxueing.top/image/upload/Kruskal" alt="结果"></p><h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><blockquote></blockquote>]]></content>
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+          <category> 图 </category>
+          
+          <category> 最小代价生成树 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> c语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>弗洛伊德算法（邻接矩阵结构）</title>
       <link href="/blogs/572bb11e123/"/>
       <url>/blogs/572bb11e123/</url>
@@ -21,9 +48,9 @@
       
         <tags>
             
-            <tag> c语言 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> c语言 </tag>
             
         </tags>
       
@@ -48,9 +75,9 @@
       
         <tags>
             
-            <tag> c语言 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> c语言 </tag>
             
         </tags>
       
@@ -75,9 +102,9 @@
       
         <tags>
             
-            <tag> c语言 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> c语言 </tag>
             
         </tags>
       
@@ -102,9 +129,9 @@
       
         <tags>
             
-            <tag> c语言 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> c语言 </tag>
             
         </tags>
       
