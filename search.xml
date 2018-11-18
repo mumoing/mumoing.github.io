@@ -3,6 +3,42 @@
   
     
     <entry>
+      <title>二叉树的非递归遍历</title>
+      <link href="/blogs/2821d4e6/"/>
+      <url>/blogs/2821d4e6/</url>
+      <content type="html"><![CDATA[<blockquote><p>关于二叉树的非递归遍历</p></blockquote><h1 id="构建的二叉树如下如下："><a href="#构建的二叉树如下如下：" class="headerlink" title="构建的二叉树如下如下："></a>构建的二叉树如下如下：</h1><p><img src="http://www.jxueing.top/image/upload/buildtree.png" alt="构建的二叉树"><br><a id="more"></a></p><h1 id="源码如下："><a href="#源码如下：" class="headerlink" title="源码如下："></a>源码如下：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;malloc.h&gt;</span><br><span class="line">#define maxSize 100</span><br><span class="line">typedef struct BTNode&#123;</span><br><span class="line">    char data;</span><br><span class="line">    struct BTNode *lchild;</span><br><span class="line">    struct BTNode *rchild;</span><br><span class="line">&#125;BTNode;</span><br><span class="line">BTNode buildTree()</span><br><span class="line">&#123;</span><br><span class="line">    BTNode *hi=(BTNode*)malloc(sizeof(BTNode)*10);</span><br><span class="line">    int i=0;</span><br><span class="line">    int num;</span><br><span class="line"></span><br><span class="line">    for(i=0;i&lt;10;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        num=i+65;</span><br><span class="line">        hi[i].data=num;</span><br><span class="line">    &#125;</span><br><span class="line">    hi[0].lchild=&amp;hi[1];</span><br><span class="line">    hi[0].rchild=&amp;hi[2];</span><br><span class="line">    hi[1].lchild=&amp;hi[3];</span><br><span class="line">    hi[1].rchild=&amp;hi[4];</span><br><span class="line">    hi[2].lchild=&amp;hi[5];</span><br><span class="line">    hi[2].rchild=NULL;</span><br><span class="line">    hi[3].rchild=&amp;hi[6];</span><br><span class="line">    hi[3].lchild=NULL;</span><br><span class="line">    hi[4].lchild=&amp;hi[7];</span><br><span class="line">    hi[4].rchild=&amp;hi[8];</span><br><span class="line">    hi[5].rchild=&amp;hi[9];</span><br><span class="line">    hi[5].lchild=NULL;</span><br><span class="line">    hi[6].lchild=NULL;</span><br><span class="line">    hi[6].rchild=NULL;</span><br><span class="line">    hi[7].lchild=NULL;</span><br><span class="line">    hi[7].rchild=NULL;</span><br><span class="line">    hi[8].lchild=NULL;</span><br><span class="line">    hi[8].rchild=NULL;</span><br><span class="line">    hi[9].lchild=NULL;</span><br><span class="line">    hi[9].rchild=NULL;</span><br><span class="line">    return hi[0];</span><br><span class="line">&#125;</span><br><span class="line">void preorderNonrecursion(BTNode *p)</span><br><span class="line">&#123;</span><br><span class="line">    if(p!=NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        BTNode *stack[maxSize];</span><br><span class="line">        int top=-1;</span><br><span class="line">        BTNode *q;</span><br><span class="line">        stack[++top]=p;</span><br><span class="line">        while(top!=-1)</span><br><span class="line">        &#123;</span><br><span class="line">            q=stack[top--];</span><br><span class="line">            printf(&quot;%-5c&quot;,q-&gt;data);</span><br><span class="line">            if(q-&gt;rchild!=NULL)</span><br><span class="line">            &#123;</span><br><span class="line">                stack[++top]=q-&gt;rchild;</span><br><span class="line">            &#125;</span><br><span class="line">            if(q-&gt;lchild!=NULL)</span><br><span class="line">            &#123;</span><br><span class="line">                stack[++top]=q-&gt;lchild;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void inorderNonrecursion(BTNode *p)</span><br><span class="line">&#123;</span><br><span class="line">    if(p!=NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        BTNode *stack[maxSize];</span><br><span class="line">        int top=-1;</span><br><span class="line">        BTNode *q=p;</span><br><span class="line">        while(top!=-1||q!=NULL)</span><br><span class="line">        &#123;</span><br><span class="line">            while(q!=NULL)</span><br><span class="line">            &#123;</span><br><span class="line">                stack[++top]=q;</span><br><span class="line">                q=q-&gt;lchild;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            if(top!=-1)</span><br><span class="line">            &#123;</span><br><span class="line">                q=stack[top--];</span><br><span class="line">                printf(&quot;%-5c&quot;,q-&gt;data);</span><br><span class="line">                q=q-&gt;rchild;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">               </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void postorderNonrecursion(BTNode *p)</span><br><span class="line">&#123;</span><br><span class="line">    if(p!=NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        BTNode *stack1[maxSize],*stack2[maxSize];</span><br><span class="line">        int top1=-1,top2=-1;</span><br><span class="line">        BTNode *q=NULL;</span><br><span class="line">        stack1[++top1]=p;</span><br><span class="line">        while(top1!=-1)</span><br><span class="line">        &#123;</span><br><span class="line">            q=stack1[top1--];</span><br><span class="line">            stack2[++top2]=q;</span><br><span class="line">            if(q-&gt;lchild!=NULL)</span><br><span class="line">            &#123;</span><br><span class="line">                stack1[++top1]=q-&gt;lchild;</span><br><span class="line">            &#125;</span><br><span class="line">            if(q-&gt;rchild!=NULL)</span><br><span class="line">            &#123;</span><br><span class="line">                stack1[++top1]=q-&gt;rchild;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        while(top2!=-1)</span><br><span class="line">        &#123;</span><br><span class="line">            q=stack2[top2--];</span><br><span class="line">            printf(&quot;%-5c&quot;,q-&gt;data);</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    BTNode hi=buildTree();</span><br><span class="line">    printf(&quot;%s\n&quot;,&quot;二叉树先序遍历非递归结果&quot;);</span><br><span class="line">    preorderNonrecursion(&amp;hi);</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    printf(&quot;%s\n&quot;,&quot;二叉树中序遍历非递归结果&quot;);</span><br><span class="line">    inorderNonrecursion(&amp;hi);</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    printf(&quot;%s\n&quot;,&quot;二叉树后序遍历非递归结果&quot;);</span><br><span class="line">    postorderNonrecursion(&amp;hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="结果如下："><a href="#结果如下：" class="headerlink" title="结果如下："></a>结果如下：</h1><p><img src="http://www.jxueing.top/image/upload/nonrecursion_result.png" alt="结果"></p><h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><blockquote></blockquote>]]></content>
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+          <category> 树 </category>
+          
+          <category> 二叉树的非递归遍历 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> c语言 </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>post</title>
+      <link href="/blogs/5a8a6c8d/"/>
+      <url>/blogs/5a8a6c8d/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
       <title>克鲁斯卡尔算法</title>
       <link href="/blogs/6f5a540e/"/>
       <url>/blogs/6f5a540e/</url>
@@ -21,9 +57,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> c语言 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -48,9 +84,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> c语言 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -75,9 +111,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> c语言 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -102,9 +138,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> c语言 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -129,9 +165,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> c语言 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
